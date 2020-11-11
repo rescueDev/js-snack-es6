@@ -4,45 +4,54 @@ STEP”:
 Generare numeri random al posto degli 0 nelle proprietà: punti fatti e falli subiti
  */
 
+let punti = 0;
+let falliSubiti = 0;
+
 //oggetto squadre
 
-var squadre = [
+const squadre = [
   {
     nome: "Real Madrid",
-    punti: 0,
-    falliSubiti: 0,
+    punti,
+    falliSubiti,
   },
   {
     nome: "Barcellona",
-    punti: 0,
-    falliSubiti: 0,
+    punti,
+    falliSubiti,
   },
   {
     nome: "Inter",
-    punti: 0,
-    falliSubiti: 0,
+    punti,
+    falliSubiti,
   },
   {
     nome: "Borussia",
-    punti: 0,
-    falliSubiti: 0,
+    punti,
+    falliSubiti,
   },
   {
     nome: "Juventus",
-    punti: 0,
-    falliSubiti: 0,
+    punti,
+    falliSubiti,
   },
 ];
 
 console.log(squadre); //vedo l'oggetto prima delle operazioni
 
-//ciclo for che mi popola i valori di punti e falliSubiti con numeri random
-for (var i = 0; i < squadre.length; i++) {
-  squadre[i].punti = randomGen();
-  squadre[i].falliSubiti = randomGen();
-}
+//ciclo forEach che mi popola i valori di punti e falliSubiti con numeri random
+squadre.forEach((element) => {
+  return [(element.punti = randomGen())], [(element.falliSubiti = randomGen())];
+});
 
-console.log("Nuovi valori con punti e falli: ", squadre); // stampo oggetto dopo aver popolato i valori
+// con clico for each mi stampo in tabelle ogni squadra con i suoi valori
+squadre.forEach((element) => {
+  console.log(`
+  Nome squadra: ${element.nome}
+  Punti: ${element.punti}
+  Falli subiti: ${element.falliSubiti}
+  `);
+});
 
 // funzione per generare numeri random
 function randomGen() {
