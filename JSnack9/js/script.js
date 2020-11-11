@@ -6,11 +6,11 @@ quindi creiamone uno nuovo con solo i valori che hanno la posizione compresa tra
 
 //creo il mio array iniziale
 
-var nomi = ["Michele", "Giovanni", "Fabio", "Simone", "Chiara", "Lucia"];
+const nomi = ["Michele", "Giovanni", "Fabio", "Simone", "Chiara", "Lucia"];
 
 //array vuoto con nomi filtrati
 
-var nomiRange = [];
+const nomiRange = [];
 
 //prompt con richiesta numeri
 
@@ -38,7 +38,7 @@ console.log(primoNum, secondoNum); //vedo numeri immessi
 
 //caso limite in cui il primo numero sia > del secondo
 if (primoNum > secondoNum) {
-  for (var i = secondoNum + 1; i < primoNum; i++) {
+  for (let i = secondoNum + 1; i < primoNum; i++) {
     console.log(nomi[i]);
     nomiRange.push(nomi[i]); // pusho i nuovi nomi nell' array vuoto
   }
@@ -46,7 +46,7 @@ if (primoNum > secondoNum) {
 
 //caso in cui primo numero sia < del secondo
 else {
-  for (var i = primoNum + 1; i < secondoNum; i++) {
+  for (let i = primoNum + 1; i < secondoNum; i++) {
     console.log(nomi[i]);
     nomiRange.push(nomi[i]); // pusho i nuovi nomi nell' array vuoto
   }
