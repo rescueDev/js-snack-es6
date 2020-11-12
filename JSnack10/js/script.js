@@ -20,15 +20,21 @@ const arrayObj = [
 console.log("Array prima dell'aggiunta: ", arrayObj); //stampo array di partenza
 
 //creo copia arrayObj
-const arrayObjCopy = JSON.parse(JSON.stringify(arrayObj));
-console.log(arrayObjCopy); //mostro nuovo array copia
+// const arrayObjCopy = JSON.parse(JSON.stringify(arrayObj));
+
+const arrayObjCopy = arrayObj.map((u) => {
+  const copiedElement = Object.assign({}, u);
+  copiedElement.letter = randLetter();
+  return copiedElement;
+});
+console.log("Array dopo l'aggiunta: ", arrayObjCopy); //mostro nuovo array copia
 
 //ciclo for in per assegnare lettera random
-for (var key in arrayObjCopy) {
+/* for (var key in arrayObjCopy) {
   arrayObjCopy[key].letter = randLetter();
 }
 
-console.log(arrayObjCopy);
+console.log(arrayObjCopy); */
 
 /* =================================== FUNZIONI GENERALI =========================================================================== */
 
