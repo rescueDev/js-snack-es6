@@ -10,8 +10,6 @@ const nomi = ["Michele", "Giovanni", "Fabio", "Simone", "Chiara", "Lucia"];
 
 //array vuoto con nomi filtrati
 
-const nomiRange = [];
-
 //prompt con richiesta numeri
 
 //primo prompt
@@ -36,8 +34,20 @@ while (secondoNum > nomi.length - 1 || isNaN(secondoNum)) {
 
 console.log(primoNum, secondoNum); //vedo numeri immessi
 
+//con filter filtro in un nuovo array l'array precedente secondo i numeri inseriti nel prompt
+const filteredArray = nomi.filter((number1, number2) => {
+  if (number1 > primoNum) {
+    return number1;
+  }
+  if (number2 < secondoNum) {
+    return number2;
+  }
+});
+
+console.log(filteredArray);
+
 //caso limite in cui il primo numero sia > del secondo
-if (primoNum > secondoNum) {
+/* if (primoNum > secondoNum) {
   for (let i = secondoNum + 1; i < primoNum; i++) {
     console.log(nomi[i]);
     nomiRange.push(nomi[i]); // pusho i nuovi nomi nell' array vuoto
@@ -50,7 +60,7 @@ else {
     console.log(nomi[i]);
     nomiRange.push(nomi[i]); // pusho i nuovi nomi nell' array vuoto
   }
-}
+} */
 
 // OUTPUT finale
-console.log("Nuovo array nomi filtrato: ", nomiRange); // stampo array nuovo filtrato
+console.log("Nuovo array nomi filtrato: ", filteredArray); // stampo array nuovo filtrato
