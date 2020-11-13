@@ -20,21 +20,40 @@ const arrayObj = [
 console.log("Array prima dell'aggiunta: ", arrayObj); //stampo array di partenza
 
 //creo copia arrayObj
+
+// ALTERNATIVA CON JSON PARSE STRINGIFY
+
 // const arrayObjCopy = JSON.parse(JSON.stringify(arrayObj));
+
+//ciclo for in per assegnare lettera random
+
+/* for (var key in arrayObjCopy) {
+  arrayObjCopy[key].letter = randLetter();
+} */
+
+//ALTERNATIVA CON MAP E OBJECT ASSIGN
 
 const arrayObjCopy = arrayObj.map((u) => {
   const copiedElement = Object.assign({}, u);
   copiedElement.letter = randLetter();
   return copiedElement;
 });
+
+//ALTERNATIVA 2 CON MAP E SPREAD
+
+//Per copiare posso usare map con spread di ogni item ad ogni ciclo più la lettera random
+
+/* const arrayObjcopy = arrayObj.map((item) => {
+  return {...item, letter:randLetter()}
+});
+ */
+
+// il livello di array è 1, all'interno ho degli oggetti senza sottolivelli, quindi in questo caso va bene
+//map fa la copia dell'array e spread mi copia i singoli oggetti
+
+//OUTPUT FINALE NUOVO ARRAY COPIA
+
 console.log("Array dopo l'aggiunta: ", arrayObjCopy); //mostro nuovo array copia
-
-//ciclo for in per assegnare lettera random
-/* for (var key in arrayObjCopy) {
-  arrayObjCopy[key].letter = randLetter();
-}
-
-console.log(arrayObjCopy); */
 
 /* =================================== FUNZIONI GENERALI =========================================================================== */
 
