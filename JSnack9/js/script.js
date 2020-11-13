@@ -35,16 +35,17 @@ while (secondoNum > nomi.length - 1 || isNaN(secondoNum)) {
 console.log(primoNum, secondoNum); //vedo numeri immessi
 
 //con filter filtro in un nuovo array l'array precedente secondo i numeri inseriti nel prompt
-const filteredArray = nomi.filter((number1, number2) => {
-  if (number1 > primoNum) {
-    return number1;
-  }
-  if (number2 < secondoNum) {
-    return number2;
-  }
+const filteredArray = nomi.filter((element, index) => {
+  //  questa è la condizione che automaticamente il return mi verifica e nel caso vero mi mette nell'array i nomi
+  return (
+    (index >= numeroUno && index <= numeroDue) ||
+    (index >= numeroDue && index <= numeroUno)
+  );
 });
 
 console.log(filteredArray);
+
+// ---------- ALTERNATIVA CON CICLI FOR
 
 //caso limite in cui il primo numero sia > del secondo
 /* if (primoNum > secondoNum) {
@@ -62,5 +63,5 @@ else {
   }
 } */
 
-// OUTPUT finale
+// ------------------------ OUTPUT finale
 console.log("Nuovo array nomi filtrato: ", filteredArray); // stampo array nuovo filtrato
