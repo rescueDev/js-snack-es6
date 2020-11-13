@@ -3,12 +3,9 @@ Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0
 STEP”:
 Generare numeri random al posto degli 0 nelle proprietà: punti fatti e falli subiti
  */
-
 let punti = 0;
 let falliSubiti = 0;
-
 //oggetto squadre
-
 const squadre = [
   {
     nome: "Real Madrid",
@@ -36,9 +33,7 @@ const squadre = [
     falliSubiti,
   },
 ];
-
 console.log(squadre); //vedo l'oggetto prima delle operazioni
-
 //clono l'array di squadre per non modificare i punti e falli subiti dell'array origine
 //uso map con object assign
 const squadreCopy = squadre.map((u) => {
@@ -47,14 +42,11 @@ const squadreCopy = squadre.map((u) => {
   copiedElement.falliSubiti = randomGen();
   return copiedElement;
 });
-
 console.log(squadreCopy);
-
 /* //ciclo forEach che mi popola i valori di punti e falliSubiti con numeri random
 squadre.forEach((element) => {
   return [(element.punti = randomGen())], [(element.falliSubiti = randomGen())];
 });
-
 // con clico for each mi stampo in tabelle ogni squadra con i suoi valori
 squadre.forEach((element) => {
   console.log(`
@@ -70,14 +62,14 @@ squadre.forEach((element) => {
 squadreCopy.forEach((element) => {
   squadreCopy.sort((a, b) => b.punti - a.punti);
 
-  // Caso limite: se ci sono due squadre con gli stessi punti mi ordini alfabeticamente
+  // Caso limite: se ci sono due squadri con gli stessi punti mi ordini alfabeticamente
   if ([element.punti] === [element.punti]) {
-    squadreCopy.sort((c, d) => c.nome - d.nome);
+    squadreCopy.sort((c) => c.nome);
+    return squadreCopy;
   }
 });
 
 console.log("Classifica squadre: ", squadreCopy);
-
 // funzione per generare numeri random
 function randomGen() {
   return Math.floor(Math.random() * 100) + 1;
