@@ -70,10 +70,10 @@ squadre.forEach((element) => {
 squadreCopy.forEach((element) => {
   squadreCopy.sort((a, b) => b.punti - a.punti);
 
-  // Caso limite: se ci sono due squadri con gli stessi punti mi ordini alfabeticamente
-  if ([element.punti] === [element.punti])
+  // Caso limite: se ci sono due squadre con gli stessi punti mi ordini alfabeticamente
+  if ([element.punti] === [element.punti]) {
     squadreCopy.sort((c, d) => c.nome - d.nome);
-  return squadreCopy;
+  }
 });
 
 console.log("Classifica squadre: ", squadreCopy);
