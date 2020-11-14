@@ -75,19 +75,16 @@ console.log("Classifica squadre: ", squadreCopy);
 //aggiungo ad ogni squadra le proprietà differenza reti creata dopo con numero random in un nuovo array
 
 const differenzaRetiClass = squadreCopy.map((element) => {
-  return { ...element, differenza: randomDiff(-10, 20) };
+  return { ...element, differenza: randomGen() };
 });
 
 differenzaRetiClass.forEach((element) => {
-  differenzaRetiClass.sort((a, b) => b.punti - a.punti);
-
   // Caso limite: se ci sono due squadre con gli stessi punti mi ordini in base alla differenza reti
   if ([element.punti] === [element.punti]) {
-    differenzaRetiClass.sort((a, b) => b.differenza - a.differenza);
-    // Caso limite estremo: se ci sono due squadre con gli stessi punti e stessa differenza reti mi ordini alfabeticamente
-    if ([element.differenza] === [element.differenza]) {
-      differenzaRetiClass.sort((c) => c.nome);
-    }
+    differenzaRetiClass.sort((c, d) => c.differenza - d.differenza);
+    // altrimenti mi ordini per punti
+  } else {
+    differenzaRetiClass.sort((a, b) => b.punti - a.punti);
   }
 });
 
@@ -95,14 +92,22 @@ console.log("Classifica aggiornata finale : ", differenzaRetiClass);
 
 const stampaClassifica = document.getElementById("classifica");
 
-differenzaRetiClass.forEach((element) => {
-  let stampa = stampaClassifica.innerHTML;
-  stampaClassifica.innerHTML = ` ${stampa}
-        Nome            Punti             Reti Differenza
-  <div style ="font-weight:bold">${element.nome}     ${element.punti}     ${element.differenza}</div>
+//stampo classifica in html
 
-  `;
-});
+var len = differenzaRetiClass.length;
+var text = "";
+
+for (let index = 0; index < len; index++) {
+  let myObj = differenzaRetiClass[index];
+  console.log(myObj);
+
+  for (var key in myObj) {
+    text += myObj[key] + " ";
+  }
+  text += "<br/>";
+}
+
+stampaClassifica.innerHTML = text;
 
 // =============================== FUNZIONI GENERALI
 
