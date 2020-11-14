@@ -106,11 +106,6 @@ var len = differenzaRetiClass.length, text = "";
             }
             text += "<br/>";
         }
-            for (var x in myObject) {
-                text += ( x + ": " + myObject[x] + " ");
-            }
-            text += "<br/>";
-        }
 
         document.getElementById("classifica").innerHTML = text;
 // =============================== FUNZIONI GENERALI
