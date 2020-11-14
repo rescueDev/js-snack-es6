@@ -69,6 +69,7 @@ squadreCopy.forEach((element) => {
   }
 });
 
+//
 console.log("Classifica squadre: ", squadreCopy);
 
 //BONUS
