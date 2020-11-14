@@ -95,15 +95,24 @@ console.log("Classifica aggiornata finale : ", differenzaRetiClass);
 
 const stampaClassifica = document.getElementById("classifica");
 
-differenzaRetiClass.forEach((element) => {
-  let stampa = stampaClassifica.innerHTML;
-  stampaClassifica.innerHTML = ` ${stampa}
-        Nome            Punti             Reti Differenza
-  <div style ="font-weight:bold">${element.nome}     ${element.punti}     ${element.differenza}</div>
 
-  `;
-});
+var len = differenzaRetiClass.length, text = "";
 
+        for (var i = 0; i < len; i++) {
+            var myObject = differenzaRetiClass[i];
+            
+            for (var x in myObject) {
+                text += ( x + ": " + myObject[x] + " ");
+            }
+            text += "<br/>";
+        }
+            for (var x in myObject) {
+                text += ( x + ": " + myObject[x] + " ");
+            }
+            text += "<br/>";
+        }
+
+        document.getElementById("classifica").innerHTML = text;
 // =============================== FUNZIONI GENERALI
 
 // funzione per generare numeri random
