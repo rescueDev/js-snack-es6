@@ -43,18 +43,6 @@ const squadreCopy = squadre.map((u) => {
   return copiedElement;
 });
 console.log(squadreCopy);
-/* //ciclo forEach che mi popola i valori di punti e falliSubiti con numeri random
-squadre.forEach((element) => {
-  return [(element.punti = randomGen())], [(element.falliSubiti = randomGen())];
-});
-// con clico for each mi stampo in tabelle ogni squadra con i suoi valori
-squadre.forEach((element) => {
-  console.log(`
-  Nome squadra: ${element.nome}
-  Punti: ${element.punti}
-  Falli subiti: ${element.falliSubiti}
-  `);
-}); */
 
 //BONUS
 //Ordino secondo i punti le squadre come una classifica
@@ -76,15 +64,24 @@ console.log("Classifica squadre: ", squadreCopy);
 //aggiungo ad ogni squadra le proprietà differenza reti creata dopo con numero random in un nuovo array
 
 const differenzaRetiClass = squadreCopy.map((element) => {
-  return { ...element, differenza: randomGen() };
+  return { ...element, differenza: randomDiff() };
 });
 
+//BONUS creazione classifica con casi limite
 differenzaRetiClass.forEach((element) => {
   // Caso limite: se ci sono due squadre con gli stessi punti mi ordini in base alla differenza reti
   if ([element.punti] === [element.punti]) {
-    differenzaRetiClass.sort((c, d) => c.differenza - d.differenza);
-    // altrimenti mi ordini per punti
-  } else {
+    if ([element.differenza] === [element.differenza]) {
+      differenzaRetiClass.sort((j) => j.nome);
+    }
+    //se hanno stessi punti ma non hanno stessa differenza reti allora mi ordini secondo differenza maggiore
+    else {
+      differenzaRetiClass.sort((c, d) => d.differenza - c.differenza);
+    }
+  }
+
+  // altrimenti se non hanno mi ordini per punti
+  else {
     differenzaRetiClass.sort((a, b) => b.punti - a.punti);
   }
 });
@@ -118,6 +115,6 @@ function randomGen() {
 }
 
 //funzione per generare differenza reti
-function randomDiff(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+function randomDiff() {
+  return Math.floor(Math.random() * 20) - 10;
 }
